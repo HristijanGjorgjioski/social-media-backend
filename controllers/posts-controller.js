@@ -1,5 +1,15 @@
 import Post from '../models/posts-model.js';
 
+export const getPosts = async (req, res) => {
+    try {
+        const posts = await Post.find();
+
+        res.status(200).json(posts);
+    } catch (error) {
+        res.status(404).json({ message: error });
+    }
+}
+
 export const createPost = async (req, res) => {
     const { description, selectedFile, creator } = req.body;
 

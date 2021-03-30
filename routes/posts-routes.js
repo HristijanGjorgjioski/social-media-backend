@@ -1,8 +1,10 @@
 import express from 'express';
-import { createPost } from '../controllers/posts-controller.js';
+import { createPost, getPosts } from '../controllers/posts-controller.js';
 
 const router = express.Router();
+import auth from '../middleware/auth.js';
 
-router.post('/createPost', createPost);
+router.get('/', getPosts);
+router.post('/createPost', auth, createPost);
 
 export default router;
