@@ -5,6 +5,6 @@ const router = express.Router();
 import auth from '../middleware/auth.js';
 
 router.get('/', getPosts);
-router.post('/createPost', auth, createPost);
+router.post('/createPost', createPost);
 
 export default router;
