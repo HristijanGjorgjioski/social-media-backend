@@ -1,13 +1,8 @@
 import Post from '../models/posts-model.js';
 
 export const getPosts = async (req, res) => {
-    try {
-        const posts = await Post.find();
-
-        res.status(200).json(posts);
-    } catch (error) {
-        res.status(404).json({ message: error });
-    }
+    const posts = await Post.find();
+    res.status(200).json(posts);
 }
 
 export const createPost = async (req, res) => {
