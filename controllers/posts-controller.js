@@ -6,10 +6,10 @@ export const getPosts = async (req, res) => {
 }
 
 export const createPost = async (req, res) => {
-    const { description, selectedFile, creator } = req.body;
+    const { description, selectedFile, creator, name } = req.body;
 
     try {
-        const result = await Post.create({ creator, description, photo: selectedFile });
+        const result = await Post.create({ creator, name, description, photo: selectedFile });
 
         res.status(201).json({ result });
     } catch (error) {
